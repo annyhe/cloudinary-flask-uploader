@@ -4,9 +4,9 @@ from flask import Flask, request
 import json
 
 DEFAULT_TAG = "python_sample_basic"
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/cloudinary', methods=['GET', 'POST'])
+@application.route('/cloudinary', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         data = request.data
@@ -31,7 +31,4 @@ def dump_response(response):
     print("Upload response:")
     for key in sorted(response.keys()):
         print("  %s: %s" % (key, response[key]))
-        
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
+         
