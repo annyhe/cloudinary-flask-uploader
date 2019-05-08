@@ -1,0 +1,4 @@
+git+git://github.com/cloudinary/pycloudinary.git
+Flask==0.12.3 
+gunicorn==19.9.0 
+cloudinary==0.2.1
