@@ -14,7 +14,7 @@ def login():
         # print(dataDict['url'])
         response = upload_files(dataDict['url'])
         uploadedRes = response['url']
-        return 'POST: ' + uploadedRes
+        return uploadedRes
     else:
         return 'GET'
 
