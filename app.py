@@ -12,16 +12,17 @@ def login():
         data = request.data
         dataDict = json.loads(data)
         # print(dataDict['url'])
-        response = upload_files(dataDict['url'])
+        response = upload_files(dataDict['url'], dataDict['name'])
         uploadedRes = response['url']
         return uploadedRes
     else:
         return 'GET'
 
-def upload_files(url): 
+def upload_files(url, name='test'): 
     print("--- Upload by fetching a remote image")
     response = upload(
         url,
+        public_id=name,
         tags=DEFAULT_TAG
     )
     return response
