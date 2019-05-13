@@ -1,6 +1,6 @@
 from cloudinary.uploader import upload
 from cloudinary.utils import cloudinary_url
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import json
 
 DEFAULT_TAG = "python_sample_basic"
@@ -13,8 +13,7 @@ def login():
         dataDict = json.loads(data)
         # print(dataDict['url'])
         response = upload_files(dataDict['url'], dataDict['name'])
-        uploadedRes = response['url']
-        return uploadedRes
+        return jsonify({ 'url': response['url'], 'height': response['height'], 'width': response['width'] })
     else:
         return 'GET'
 
